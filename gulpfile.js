@@ -34,14 +34,9 @@ gulp.task("css", function () {
 
 gulp.task("startworking", function () {
   return gulp.src('*.*', {read: false})
-    .pipe(gulp.dest('./source'))
     .pipe(gulp.dest('./source/css'))
     .pipe(gulp.dest('./source/sass'))
     .pipe(gulp.dest('./source/sass/blocks'))
-    .pipe(gulp.dest('./source/sass/base.scss'))
-    .pipe(gulp.dest('./source/sass/mixins.scss'))
-    .pipe(gulp.dest('./source/sass/variables.scss'))
-    .pipe(gulp.dest('./source/sass/style.scss'))
     .pipe(gulp.dest('./source/img'))
     .pipe(gulp.dest('./source/fonts'))
     .pipe(gulp.dest('./source/js'));
