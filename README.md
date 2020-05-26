@@ -1,4 +1,4 @@
-#StarterPack
+<h1>StarterPack</h1>
 Set of starter features. Including gulp,sass, JQ and some of polyfills(exceptionally for sprites and adaptive pictures)<br/>
 <h2>To start working you need to:
 <ul>
