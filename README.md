@@ -1,6 +1,6 @@
 <h1>StarterPack</h1>
 Set of starter features. Including gulp,sass, JQ and some of polyfills(exceptionally for sprites and adaptive pictures)<br/>
-<h2>To start working you need to:
+<h2>To start working you need to:</h2>
 <ul>
   <li>Create connections with <b>npm</b> using <b>npm i</b></li>
   <li>run <b>npm audit fix</b> (if it requires)</li>
