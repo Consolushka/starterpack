@@ -18,7 +18,7 @@ Now you have directories which are necessary
   <li>Image minimizer</li>
   <li>creating Webp copies</li>
   <li>storing SvgSprite</li>
-  <li>Creaing Build </li>
+  <li>Creating Build Version</li>
 </ul>
 <h3>Polyfills</h3>
 <ul>

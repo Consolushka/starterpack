@@ -53,6 +53,7 @@ gulp.task("server", function () {
   });
 
   gulp.watch("source/sass/**/*.scss", gulp.series("css"));
+  gulp.watch("source/js/*.js").on("change", server.reload);
   gulp.watch("source/*.html").on("change", server.reload);
 });
 
@@ -63,7 +64,13 @@ gulp.task("images", function () {
         optimizationLevel: 3,
         progressive: true
       }),
-      imagemin.svgo()
+      imagemin.svgo({
+        plugins: [
+          {
+            removeViewBox: false
+          }
+        ]
+      })
     ]))
     .pipe(gulp.dest("source/img"));
 });
