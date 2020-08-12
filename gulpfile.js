@@ -18,7 +18,7 @@ var del = require("del");
 var server = require("browser-sync").create();
 
 gulp.task("css", function () {
-  return gulp.src("source/sass/style.scss")
+  return gulp.src("source/sass/style-*.scss")
     .pipe(plumber())
     .pipe(sourcemap.init())
     .pipe(sass())
@@ -26,7 +26,12 @@ gulp.task("css", function () {
       autoprefixer()
     ]))
     .pipe(csso())
-    .pipe(rename("style.min.css"))
+    .pipe(rename(tap(file => {
+      const path = file.path.toString();
+      var a = path.split("\\");
+      var b = a[a.length - 1].split(".")[0] + ".min.css";
+      return b;
+    })))
     .pipe(sourcemap.write("."))
     .pipe(gulp.dest("source/css"))
     .pipe(server.stream());
@@ -45,7 +50,7 @@ gulp.task("startworking", function () {
 
 gulp.task("server", function () {
   server.init({
-    server: "source/",
+    server: "build/",
     notify: false,
     open: true,
     cors: true,
@@ -53,8 +58,9 @@ gulp.task("server", function () {
   });
 
   gulp.watch("source/sass/**/*.scss", gulp.series("css"));
-  gulp.watch("source/js/*.js").on("change", server.reload);
-  gulp.watch("source/*.html").on("change", server.reload);
+  gulp.watch("source/js/blocks/*.js", gulp.series("jscopy")).on("change", server.reload);
+  gulp.watch("source/img/*", gulp.series("imgcopy")).on("change", server.reload);
+  gulp.watch("source/*.html", gulp.series("htmlcopy")).on("change", server.reload);
 });
 
 gulp.task("images", function () {
@@ -72,13 +78,28 @@ gulp.task("images", function () {
         ]
       })
     ]))
-    .pipe(gulp.dest("source/img"));
+    .pipe(gulp.dest("build/img"));
+});
+
+gulp.task("jscopy", function () {
+  return gulp.src("source/js/blocks/*.js")
+    .pipe(gulp.dest("build/js/blocks"))
+});
+
+gulp.task("imgcopy", function () {
+  return gulp.src("source/img/*")
+    .pipe(gulp.dest("build/img"))
+});
+
+gulp.task("htmlcopy", function () {
+  return gulp.src("source/*.html")
+    .pipe(gulp.dest("build/"))
 });
 
 gulp.task("webp", function () {
   return gulp.src("source/img/**/*.{png,jpg}")
     .pipe(webp({quality: 80}))
-    .pipe(gulp.dest("source/img"));
+    .pipe(gulp.dest("build/img"));
 });
 
 gulp.task("svgstore", function () {
@@ -87,7 +108,7 @@ gulp.task("svgstore", function () {
       inlineSvg: true
     }))
     .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("source/img"));
+    .pipe(gulp.dest("build/img"));
 });
 
 gulp.task("copy", function () {
