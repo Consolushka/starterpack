@@ -8,6 +8,7 @@ var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var csso = require("gulp-csso");
 var rename = require("gulp-rename");
+var tap = require("gulp-tap");
 
 var imagemin = require("gulp-imagemin");
 var webp = require("gulp-webp");
@@ -118,7 +119,7 @@ gulp.task("copy", function () {
     "source/js/**",
     "source/*.ico",
     "source/*.html",
-    "source/css/style.min.css"
+    "source/css/style-*.css"
   ], {
     base: "source",
     allowEmpty: true
@@ -134,8 +135,8 @@ gulp.task("build", gulp.series(
   "clean",
   "images",
   "webp",
-  "copy",
   "css",
-  "svgstore"
+  "svgstore",
+  "copy",
 ));
 gulp.task("start", gulp.series("build", "server"));
