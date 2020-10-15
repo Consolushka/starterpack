@@ -2,90 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Карта кампуса РГАУ МСХА</title>
-  <link rel="stylesheet" href="css/style-base.css">
+
+  <meta name="theme-color" content="#181617"><!-- Coloring Top Bar of mobile Chrome-->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Meta for viewport -->
+  <title>Title</title>
+
+  <link rel="stylesheet" href="css/style-base.css"><!-- Basic Styles connection -->
+  <link rel="stylesheet" href="css/style-index.css"><!-- Other Styles connection -->
+  <link rel="preload" href="fonts/" type="font/" as="font" crossorigin="anonymous"><!-- Fonts preload -->
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script><!-- JQuery -->
+  <script src="js/svg4everybody.js"></script><!-- SvgSprite polyfill -->
+  <script>svg4everybody();</script>
+  <script src="js/picturepolyfill.js"></script><!-- Polyfill for adaptive pictures -->
 </head>
 <body>
-<main class="map">
-  <div class="container container--map map-wrapper">
-    <img src="img/imgonline-com-ua-Resize-LK9d2hef415kMMQ.jpg" alt="" class="map-image">
-    <div class="map__campuses">
-      <svg width="46" height="46" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--first" data-number="1">
-      </svg>
-      <svg width="28" height="28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--second" data-number="2">
-      </svg>
-      <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--third" data-number="3">
-      </svg>
-      <svg width="42" height="42" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--fourth" data-number="4">
-      </svg>
-      <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--fifth" data-number="5">
-      </svg>
-      <svg width="32" height="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--sixth" data-number="6">
-      </svg>
-      <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--eight" data-number="8">
-      </svg>
-      <svg width="40" height="28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--nine" data-number="9">
-      </svg>
-      <svg width="25" height="28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-           class="campus campus--ten" data-number="10">
-      </svg>
-    </div>
-  </div>
-</main>
 
-<section class="popup popup--hidden info">
-  <button class="popup-btn">
-    <svg width="16" height="16">
-      <use xlink:href="img/sprite.svg#icon-close"></use>
-    </svg>
-    <span class="visually-hidden">Закрыть</span>
-  </button>
-  <h2 class="info__name">Учебный корпус № <span class="info__name-number"></span></h2>
-  <article class="info__floors"></article>
-  <article class="info__cathedras"></article>
-  <article class="info__deaneries"></article>
-</section>
-
-<template id="floorTempl">
-  <div class="info__floors__item floor">
-    <h3 class="floor-title">asdasd</h3>
-  </div>
-</template>
-
-<template id="roomTempl">
-  <div class="floor__room">
-    <span class="floor__room-title">фыв</span>
-    <span class="floor__room-desc">asdd</span>
-  </div>
-</template>
-
-<template id="cathedraTempl">
-  <div class="info__cathedras__item cathedra">
-    <h3 class="cathedra-title"></h3>
-  </div>
-</template>
-
-<template id="deaneryTempl">
-  <div class="info__deanerys__item deanery">
-    <h3 class="deanery-title"></h3>
-    <p class="deanery-floor"></p>
-    <ul class="deanery__rooms-list">
-    </ul>
-  </div>
-</template>
-
-<script src="js/utilModule.js"></script>
-<script src="js/campusModule.js"></script>
-<script src="js/dataModule.js"></script>
-<script src="js/cardModule.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>
